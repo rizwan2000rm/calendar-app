@@ -7,3 +7,18 @@
 *::after {
   box-sizing: border-box;
 }
+
+:root {
+  --clr-blue-dark: #3f74f7;
+  --clr-blue-light: #eff4fe;
+
+  --clr-gray-dark: #53a9ac;
+  --clr-gray-light: #eaf5f6;
+
+  --clr-orange-dark: #ec7d5b;
+  --clr-orange-light: #f6eeea;
+}
+
+.grid-rows-25 {
+  grid-template-rows: repeat(25, minmax(60px, 1fr));
+}

@@ -24,13 +24,13 @@ const Sidebar = () => {
   );
 
   return (
-    <nav className="flex flex-col justify-between p-4 border-r-2 border-gray-100">
+    <nav className="hidden sm:flex flex-col justify-between p-4 border-r border-gray-100">
       <Logo />
 
       {Links}
 
       <img
-        className="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white dark:ring-gray-800"
+        className="inline-block h-[2.375rem] w-[2.375rem] rounded-full ring-2 ring-white"
         src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
         alt="Image Description"
       />
