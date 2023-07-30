@@ -195,7 +195,7 @@ export const EVENTS_RESPONSE = {
       name: "Event 18",
       description: "Event 18 description",
       start: "2023-08-06T00:45:00.000Z",
-      end: "2023-08-06T01:45:00.000Z",
+      end: "2023-08-06T02:45:00.000Z",
       calendarId: "1",
       color: "blue",
       createdAt: "2021-01-01T00:00:00Z",

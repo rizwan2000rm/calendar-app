@@ -4,6 +4,7 @@ import {
   getEventColors,
 } from "@/shared/utils";
 import { Event } from "@/shared/classes";
+import { motion } from "framer-motion";
 
 type EventProps = {
   event: Event;
@@ -44,8 +45,8 @@ const EventComponent = ({ event }: EventProps) => {
   );
 
   return (
-    <span
-      className={`absolute flex flex-col overflow-hidden rounded-lg text-left pl-4 p-2 w-[calc(100%-10px)] ${getEventColors(
+    <motion.span
+      className={`event absolute flex flex-col overflow-hidden rounded-lg text-left pl-4 p-2 w-[calc(100%-10px)] ${getEventColors(
         event.color
       )}`}
       key={event.id}
@@ -53,12 +54,13 @@ const EventComponent = ({ event }: EventProps) => {
         top: `${heightFromTop}px`,
         height: `${heightOfEvent}px`,
       }}
+      initial={{ opacity: 0, x: -70 }}
     >
       {Border}
       {EventName}
       {TimeStamp}
       {Tag}
-    </span>
+    </motion.span>
   );
 };
 
