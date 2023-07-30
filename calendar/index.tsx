@@ -1,17 +1,33 @@
+import { useState } from "react";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db } from "@/db";
 import TimeColumn from "./components/time-column";
 import WeekView from "./components/week-view";
 import { getNextSevenDays, groupEventsByDate } from "@/shared/utils";
-import { EVENTS_RESPONSE } from "@/shared/mock";
+import { EventResponse } from "@/shared/classes";
 
 type CalendarProps = {
   weekStart: Date;
 };
 
 const Calendar = ({ weekStart }: CalendarProps) => {
-  const week = getNextSevenDays(weekStart);
   const today = new Date();
+  const week = getNextSevenDays(weekStart);
 
-  const events = groupEventsByDate(EVENTS_RESPONSE);
+  const [eventResponse, setEventResponse] = useState<EventResponse>();
+
+  useLiveQuery(async () => {
+    const events = await db.events.toArray();
+
+    setEventResponse({
+      count: events.length,
+      next: null,
+      previous: null,
+      results: events,
+    });
+  });
+
+  const events = groupEventsByDate(eventResponse);
 
   return (
     <div className="py-4 pb-24 overflow-auto h-full">

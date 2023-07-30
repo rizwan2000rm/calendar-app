@@ -46,7 +46,9 @@ export const getNextWeekStartDate = (weekStartDate: Date): Date => {
   return nextWeekStartDate;
 };
 
-export const groupEventsByDate = (eventsResponse: EventResponse): EventMap => {
+export const groupEventsByDate = (eventsResponse?: EventResponse): EventMap => {
+  if (!eventsResponse) return {};
+
   const events: Event[] = eventsResponse.results;
   const eventMap: { [date: string]: Event[] } = {};
 
